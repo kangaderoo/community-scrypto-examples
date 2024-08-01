@@ -1,0 +1,26 @@
+{
+  "name": "CatchTheCOW",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite src",
+    "build": "vite build src --emptyOutDir",
+    "preview": "vite preview src"
+  },
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es2023"
+  },
+  "include": [
+    "node_modules"
+  ],
+  "devDependencies": {
+    "vite": "^4.5.3",
+    "vite-plugin-static-copy": "^0.17.1"
+  },
+  "dependencies": {
+    "@radixdlt/babylon-gateway-api-sdk": "^1.6.1",
+    "@radixdlt/radix-dapp-toolkit": "^2.0.3"
+  }
+}
