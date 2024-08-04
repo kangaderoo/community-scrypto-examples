@@ -13,8 +13,12 @@ GATEWAYS = ['https://mainnet.radixdlt.com/', 'https://stokenet.radixdlt.com/']
 class RadixNetwork:
     def __init__(self):
         self.nftaddress = 'resource_rdx1ngsg0n0z5p0ezjt6syw3twz66sy2k4q65hdpdspp3vqu9qgdfcnnlh'
-        self.nftid= '<Cauldron>'
+        self.nftid = '<Cauldron>'
 
+## some NFT tracing of RadQuest NFTs
+#        self.nftaddress = 'resource_rdx1ntr6s37qnrjw8eu04l2ejxfg6y067qzs87zde6ljfp9u63tj87jmxu'
+#        self.nftid = '{d1d846d7a5f52b04-d419c916477549b3-999c2c961e873200-6477ca3f73709273}'
+#        self.nftid = '{83968bf253e23f3b-44b62fd79f616d67-4c5d418e745a1d81-761b16455b812168}'
     #   Simple gateway API communication function.
     def gatewaypost(self, **kwargs) -> str:
         url = kwargs['url']
@@ -24,7 +28,7 @@ class RadixNetwork:
         return requests.post(fullpath, json = obj).text
     
 
-    def gethistoryatstateversion(self, stateversion) -> {}:
+    def gethistoryatstateversion(self, stateversion) -> {}: # type: ignore
         req = f"""
         {{
             "resource_address": "{self.nftaddress}",
@@ -49,6 +53,7 @@ class RadixNetwork:
             api = '/state/non-fungible/location',
             obj = txobject
         ))
+#        print (response)
         return response
 
 
@@ -62,10 +67,14 @@ class RadixNetwork:
         while laststateversion > 0:
             response = self.gethistoryatstateversion(laststateversion-1);
             if response.get('code')==None:
-                info = response.get('non_fungible_ids')
-                time = response.get('ledger_state').get('proposer_round_timestamp')
-                laststateversion = info[0].get('last_updated_at_state_version')
-                locations.append(f'''{time} {info[0].get('owning_vault_global_ancestor_address')} {laststateversion}''')
+                try:
+                    info = response.get('non_fungible_ids')
+                    time = response.get('ledger_state').get('proposer_round_timestamp')
+                    laststateversion = info[0].get('last_updated_at_state_version')
+                    locations.append(f'''{time} {info[0].get('owning_vault_global_ancestor_address')} {laststateversion}''')
+                except:
+                    laststateversion = 0
+#                    print (response)
             else:
                 laststateversion = 0
 
@@ -94,5 +103,5 @@ class RadixNetwork:
 if __name__ == "__main__":
     RadixNetwork = RadixNetwork()
     RadixNetwork.gethistory()
-    RadixNetwork.gettxid(110357902)
+#    RadixNetwork.gettxid(110357902)
                            

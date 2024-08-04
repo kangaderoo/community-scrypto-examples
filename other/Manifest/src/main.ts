@@ -3,7 +3,7 @@ import {
   DataRequestBuilder,
 } from '@radixdlt/radix-dapp-toolkit'
 
-import { GatewayApiClient, RadixNetwork } from '@radixdlt/babylon-gateway-api-sdk'
+import { GatewayApiClient, RadixNetwork, StateNonFungibleLocationRequestAllOfToJSON, StateNonFungibleLocationRequestFromJSONTyped, StateNonFungibleLocationRequestToJSON } from '@radixdlt/babylon-gateway-api-sdk'
 
 const mynetworkId = 1;
 
@@ -58,7 +58,8 @@ refreshButtonElement.addEventListener("click", async () => {
 
     clientAddress = result.value.accounts[0].address;
   }
-  document.getElementById('walletAddress').innerText = clientAddress  
+  let logclientAddress = clientAddress.substring(0,10)+"..."+clientAddress.substring(clientAddress.length-10,clientAddress.length);
+  document.getElementById('walletAddress').innerText = logclientAddress  
 
   const getTokenDetails = await state.getNonFungibleLocation(
     COWResourceAddress,
@@ -68,8 +69,11 @@ refreshButtonElement.addEventListener("click", async () => {
   console.log (getTokenDetails)
   if (getTokenDetails.total_count != 0){
     vaultAddress = getTokenDetails[0].owning_vault_address;
-    document.getElementById('vaultAddress').innerText = vaultAddress
-    document.getElementById('owningAddress').innerText = getTokenDetails[0].owning_vault_global_ancestor_address  
+    let logvaultAddress = vaultAddress.substring(0,10)+"..."+vaultAddress.substring(vaultAddress.length-10,vaultAddress.length);
+    document.getElementById('vaultAddress').innerText = logvaultAddress
+    let owningAddress= getTokenDetails[0].owning_vault_global_ancestor_address
+    let logowningAddress = owningAddress.substring(0,10)+"..."+owningAddress.substring(owningAddress.length-10,owningAddress.length);
+    document.getElementById('owningAddress').innerText = logowningAddress
   }
 
 
@@ -77,8 +81,16 @@ refreshButtonElement.addEventListener("click", async () => {
 
 recallButtonElement.addEventListener("click", async () => {
   let manifest = `
-RECALL_NON_FUNGIBLES_FROM_VAULT Address("${vaultAddress}") Array<NonFungibleLocalId>(NonFungibleLocalId("<Cauldron>"));
-CALL_METHOD Address("${clientAddress}") "deposit_batch" Expression("ENTIRE_WORKTOP");
+RECALL_NON_FUNGIBLES_FROM_VAULT 
+  Address("${vaultAddress}") 
+  Array<NonFungibleLocalId>(
+    NonFungibleLocalId("<Cauldron>")
+  )
+;
+CALL_METHOD Address("${clientAddress}") 
+  "deposit_batch" 
+  Expression("ENTIRE_WORKTOP")
+;
 `
   console.log (manifest)
 
