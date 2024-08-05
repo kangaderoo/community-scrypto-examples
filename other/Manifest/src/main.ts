@@ -11,7 +11,7 @@ console.log ("network ID", mynetworkId);
 
 // UPDATES UPDATES UPDATES UPDATES UPDATES UPDATES UPDATES UPDATES UPDATES UPDATES UPDATES UPDATES UPDATES 
 
-const dAppId = 'account_rdx128mrnm4upe8p94sfze0ka605ktgpr5ckv7dwzpynh4c750tl0tc7yn'
+const dAppId = 'account_rdx1684rafcev320nyum73j5kmlwqhpld33s6ua0adtefhylvxje7kwqyy'
 
 // UPDATES END 
 
@@ -61,6 +61,8 @@ refreshButtonElement.addEventListener("click", async () => {
   let logclientAddress = clientAddress.substring(0,10)+"..."+clientAddress.substring(clientAddress.length-10,clientAddress.length);
   document.getElementById('walletAddress').innerText = logclientAddress  
 
+  recallButtonElement.textContent="Recall"
+
   const getTokenDetails = await state.getNonFungibleLocation(
     COWResourceAddress,
     [COWNFTid]
@@ -95,7 +97,7 @@ CALL_METHOD Address("${clientAddress}")
   console.log (manifest)
 
   if (clientAddress == "<undefined>"){
-//    performFreezeButtonElement.textContent = "Refresh wallet first"
+    recallButtonElement.textContent = "Refresh first"
 //    performMeltButtonElement.textContent = "Refresh wallet first"
   }else{
     if (vaultAddress=="<undefined>") {

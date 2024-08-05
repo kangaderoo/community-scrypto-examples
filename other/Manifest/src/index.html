@@ -4,70 +4,82 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/cow.css">
   <title>Catch the COW (Cauldron of Wealth)</title>
 </head>
 
 <body>
-  <noscript>You need to enable JavaScript to run this app.</noscript>
-  <script type="module" src="/main.ts"></script>
-
-  <div class="connectBtn">
-    <radix-connect-button />
-  </div>
-  <h1>A site track and claim the COW nft</h1>
-  <p>The magical object Cauldron Of Wealth has been roaming free on the Radix Network.<br><br>
-    On this site you can check it's current wearabouts as well as claim the cualdron for yourself..... untill someone else claims it again.<br><br>    
-    This game is to showcase the RECALL function that is part of the radix network. A resource with the recall trait activated can be retreived. For the C.O.W. the retreival conditions are set to allowAll, meaning everyone can recall the NFT from wherever on the network.<br><br>
-    The Game: After a week of visiting all corners of the Radix Network... or not... the weeks wanderings of the C.O.W. will be posted. From the number of transactions the C.O.W. has been subject to, one will be chosen as the winning transaction.<br><br>
-    A price of 1M $BALLS awaits the account that made the winning transaction.
-    </p>
-<!--  <p><b>Please select a single wallet</b></p> -->
-  <div class = "cow-container">
-    <div class = "cow-container">
-      <div class="contentchild">
-        <h3>Refresh</h3>
-        <button id="refreshwallet">Refresh</button>
-      </div>
-    </div>
-    <div class="contentchild"></div>
-    <div class = "cow-container">
-      <div class="contentchild">
-        <h3>Recall COW</h3>
-        <button id="performrecall">Recall COW</button>
-      </div>
-    </div>
-  </div>
-  <div class="container">
-    <p>Selected Wallet : <span id="walletAddress"></span></br>
-    <p>Vault Location  : <span id="vaultAddress"></span></br>
-    <p>Owning Wallet   : <span id="owningAddress"></span></br>
-  </div>
-
-  <div class="divider"></div>
-
-  <!--
-  <div class="divider"></div>
-  <h2>Freeze token to NFT</h2>
-  <p>Select the number of tokens to Freeze</p>
-  <p><input id="freeze_amount_input" type="range" min="0" max="10" step="1" /> <p>
-  <button id="performfreeze">Perform Freeze</button>
-
-  <div class="divider"></div>
-  <h2>Melt NFT to token by amount</h2>
-  <p>Select the number of tokens to Melt</p>
-  <p><input id="melt_amount_input" type="range" min="0" max="10" step="1" /> <p>
-  <button id="performmelt">Perform Melt</button>
-  <div class="divider"></div>
-
-  <div class="divider"></div>
-  <h2>Melt NFT to token by NFTid(s)</h2>
-  <p>Supply the NFTid(s) to Melt; use space as seperator</br>
-  Only the number as input i.e.: 123 not #123#</p>
-  <p><input id="melt_bynftids_input" type="text" /> <p>
-  <button id="performmeltbyids">Perform Melt by ID(s)</button>
-  <div class="divider"></div>
+  <div class="navbar wf-section">
+    <div data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navbar-container shadow w-nav">
+       <div class="container">
+          <div class="navbar-wrapper">
+             <div class ="navbar-container-child">
+                <h1>Catch the C.O.W.</h1>
+             </div>
+             <div class="social">
+                <a href="https://t.me/crypto_conan_followers" target="_blank" class="icon" bis_skin_checked="1">
+                   <img src="./telegram.png" width="100%" alt="">
+                </a>
+             </div>
+<!--             <div class="menu-button w-nav-button">
+                <div class="w-icon-nav-menu"></div>
+             </div>
 -->
+             <div class="connectBtn">
+                <radix-connect-button />
+             </div>
+          </div>
+       </div>
+    </div>
+ </div>
+
+
+<noscript>You need to enable JavaScript to run this app.</noscript>
+<script type="module" src="/main.ts"></script>
+<section class="heading-right wf-section">
+	<div class="container">
+		<p><strong>The magical object Cauldron Of Wealth has been roaming free on the Radix Network.<br><br>
+		On this site you can check it's current wearabouts as well as claim the cualdron for yourself..... untill someone else claims it again.<br>  
+		</strong></p>
+		
+		<div class="content">
+			<div class="contentchild">
+				<h3>Refresh</h3>
+				<button id="refreshwallet" class="btn-roll-dice">Refresh</button>
+			</div>
+			<div class="contentchild">
+				<h3>Recall COW</h3>
+				<button id="performrecall" class="btn-roll-dice">Recall</button>
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+		<strong>
+			<p>Selected Wallet : <span id="walletAddress"></span></br>
+			<p>Vault Location  : <span id="vaultAddress"></span></br>
+			<p>Owning Wallet   : <span id="owningAddress"></span></br><br><br>
+		</strong>
+	</div>
+	
+
+	<div class="container">
+		<p><strong>
+		This game is to showcase the RECALL function that is part of the radix network. A resource with the recall trait activated can be retreived. For the C.O.W. the retreival conditions are set to allowAll, meaning everyone can recall the NFT from wherever on the network.<br><br>
+		The Game: After a week of visiting all corners of the Radix Network... or not... the weeks wanderings of the C.O.W. will be posted. From the number of transactions the C.O.W. has been subject to, one will be chosen as the winning transaction.<br><br>
+		A price of 1M $BALLS awaits the account that made the winning transaction.
+		</strong></p>
+	</div>
+
+</section>
+<section class="footer-light wf-section">
+ <div class="container">
+	<div class="footer-divider-two"></div>
+	<div class="footer-bottom">
+	   <div class="footer-copyright">© 2024 Kangaderoo. All rights reserved</div>
+	</div>
+ </div>
+</section>
 </body>
 
 </html>
