@@ -1,9 +1,7 @@
 from radix_engine_toolkit import * 
 from typing import List, Dict, Any
 from typing import Tuple
-import configparser
-import secrets
-import re
+import datetime
 import requests
 import json
 
@@ -77,6 +75,12 @@ class RadixNetwork:
 #                    print (response)
             else:
                 laststateversion = 0
+            if laststateversion !=0:
+                loc = time.find(".")
+                epoch = datetime.datetime.strptime(time[:-(len(time)-loc)], "%Y-%m-%dT%H:%M:%S")
+                if epoch.timestamp() < 1725451200.0: # do not list entries from before action start.
+                    print (f"{epoch.timestamp()} < 1725451200.0")
+                    laststateversion = 0
 
         for entry in locations:
             print (f"{entry}")
@@ -104,4 +108,4 @@ if __name__ == "__main__":
     RadixNetwork = RadixNetwork()
     RadixNetwork.gethistory()
 #    RadixNetwork.gettxid(110357902)
-                           
+#    RadixNetwork.gettxid(119019619)

@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="/cow.css">
+  <link rel="stylesheet" href="/public/cow.css">
   <title>Catch the COW (Cauldron of Wealth)</title>
 </head>
 
@@ -18,7 +18,7 @@
              </div>
              <div class="social">
                 <a href="https://t.me/crypto_conan_followers" target="_blank" class="icon" bis_skin_checked="1">
-                   <img src="./telegram.png" width="100%" alt="">
+                   <img src="/public/telegram.png" width="100%" alt="">
                 </a>
              </div>
 <!--             <div class="menu-button w-nav-button">
@@ -39,17 +39,23 @@
 <section class="heading-right wf-section">
 	<div class="container">
 		<p><strong>The magical object Cauldron Of Wealth has been roaming free on the Radix Network.<br><br>
-		On this site you can check it's current wearabouts as well as claim the cauldron for yourself..... untill someone else claims it again.<br>  
+		On this site you can check it's current wearabouts as well as claim the cauldron for yourself..... <br><br>
+		<h3>Only those who can show proof of 1M $BALLS can make the claim.</h3><br>
+		Proof can be shown if you have the $BALLS in your posession. If you do not have the $BALLS to generate the proof, the $BALLS can be purchased, 
+		or proof of 1M $BALLS can be leased for a small fee.   
 		</strong></p>
 		
+		<div class="contentchild">
+			<h3>Refresh</h3>
+			<button id="refreshwallet" class="btn-roll-dice">Refresh</button>
+		</div>
 		<div class="content">
+			<h3>Recall COW</h3>
 			<div class="contentchild">
-				<h3>Refresh</h3>
-				<button id="refreshwallet" class="btn-roll-dice">Refresh</button>
+				<button id="performrecall" class="btn-roll-dice">Using Own $BALLS</button>
 			</div>
 			<div class="contentchild">
-				<h3>Recall COW</h3>
-				<button id="performrecall" class="btn-roll-dice">Recall</button>
+				<button id="performleasedrecall" class="btn-roll-dice">Using Leased $BALLS</button>
 			</div>
 		</div>
 	</div>
@@ -57,17 +63,18 @@
 	<div class="container">
 		<strong>
 			<p>Selected Wallet : <span id="walletAddress"></span></br>
+			<p>Your $BALLS holdings : <span id="BallHoldings"></span></br></br>
 			<p>Vault Location  : <span id="vaultAddress"></span></br>
-			<p>Owning Wallet   : <span id="owningAddress"></span></br><br><br>
+			<p>Owning Wallet   : <span id="owningAddress"></span></br><br>
 		</strong>
 	</div>
 	
 
 	<div class="container">
 		<p><strong>
-		This game is to showcase the RECALL function that is part of the radix network. A resource with the recall trait activated can be retreived. For the C.O.W. the retreival conditions are set to allowAll, meaning everyone can recall the NFT from wherever on the network.<br><br>
-		The Game: After a week of visiting all corners of the Radix Network... or not... the weeks wanderings of the C.O.W. will be posted. From the number of transactions the C.O.W. has been subject to, one will be chosen as the winning transaction.<br><br>
-		A price of 1M $BALLS awaits the account that made the winning transaction.
+		This game is to showcase the RECALL and PROOF functions that are part of the radix network. A resource with the recall trait activated can be retreived. For the C.O.W. the retreival conditions are set to proof of 1M $BALLS, meaning everyone with 1M $BALLS can recall the NFT from wherever on the network.<br><br>
+		If you do not have the $BALLS to generate the proof these can be bought, the other option is to lease the Proof of $BALLS.. for a small fee.<br>
+		During the remainder of this month the whereabouts of the C.O.W. will be traced, a ranking will be made and winners will be rewareded.
 		</strong></p>
 	</div>
 
